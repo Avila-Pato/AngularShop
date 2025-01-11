@@ -1,52 +1,79 @@
-<div>
-    <h5 class="mb-3">Mi carrito</h5>
-  
-    <div class="row">
-      <div class="col-sm-9">
-        <div class="card">
-          <div class="card-body">
-            <div class="table-responsive">
-              <table class="table table-bordered table-striped text-center">
-                <thead>
-                  <tr>
-                    <th>Imagen</th>
-                    <th>Nombre</th>
-                    <th>Cantidad</th>
-                    <th>Precio</th>
-                    <th>Total</th>
-                    <th>Acción</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <!-- Reemplazar @for con *ngFor -->
-                  <tr *ngFor="let item of listaCarrito; trackBy: trackByFn">
-                    <td>
-                      <img [src]="'img/' + item.producto.imagen" 
-                           alt="imagen" 
-                           class="img-fluid" 
-                           style="object-fit: cover; height: 50px; width: 50px;">
-                    </td>
-                    <td>{{ item.producto.nombre }}</td>
-                    <td>{{ item.cantidad }}</td>
-                    <td>{{ item.producto.precio }}</td>
-                    <td>{{ item.producto.precio * item.cantidad }}</td>
-                    <td>
-                      <button class="btn btn-danger btn-sm" (click)="eliminarItem(item)">
-                        <i class="fa fa-trash"></i> Eliminar
-                      </button>
-                    </td>
-                  </tr>
-  
-                  <!-- Mensaje para carrito vacío -->
-                  <tr *ngIf="listaCarrito.length === 0">
-                    <td colspan="6" class="text-center fw-bold">No hay productos en el carrito</td>
-                  </tr>
-                </tbody>
-              </table>
+<div class="container-fluid mt-3">
+  <h5 class="mb-3 ">Mi carrito</h5>
+
+  <div class="row">
+    <div class="col-sm-9">
+      <div class="card">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered table-striped text-center">
+              <thead>
+                <tr>
+                  <th>Imagen</th>
+                  <th>Nombre</th>
+                  <th>Cantidad</th>
+                  <th>Precio</th>
+                  <th>Total</th>
+                  <th>Acción</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Reemplazar @for con *ngFor -->
+                <tr *ngFor="let item of listaCarrito; trackBy: trackByFn">
+                  <td>
+                    <img
+                      [src]="'img/' + item.producto.imagen"
+                      alt="imagen"
+                      class="img-fluid"
+                      style="object-fit: cover; height: 50px; width: 50px"
+                    />
+                  </td>
+                  <td>{{ item.producto.nombre }}</td>
+                  <td>{{ item.cantidad }}</td>
+                  <td>{{ item.producto.precio }}</td>
+                  <td>{{ item.producto.precio * item.cantidad }}</td>
+                  <td>
+                    <button
+                      class="btn btn-danger btn-sm"
+                      (click)="eliminarItem(item)"
+                    >
+                      <i class="fa fa-trash"></i> Eliminar
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Mensaje para carrito vacío -->
+                <tr *ngIf="listaCarrito.length === 0">
+                  <td colspan="6" class="text-center fw-bold">
+                    No hay productos en el carrito
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <h5>Resumen compa</h5>
+            <hr />
+
+            <div class="d-flex justify-content-between mb-4">
+              <p class="mb-2">Total</p>
+              <p class="mb-2">$</p>
+
+              <button type="button" class="btn btn-dark btn-block btn-lg">
+                <div class="d-flex justify-content-between">
+                  <span>PROCESAR</span>
+                </div>
+              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  
+</div>
