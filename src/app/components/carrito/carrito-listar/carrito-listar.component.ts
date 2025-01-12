@@ -1,4 +1,5 @@
 import { Component, OnInit, TrackByFunction, inject } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Carrito } from '../../../core/modelo/carrito';
 import { CarritoService } from '../../../core/services/carrito.service';
 import { CommonModule } from '@angular/common';
@@ -6,12 +7,12 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-carrito-listar',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,FormsModule],
   templateUrl: './carrito-listar.component.html',
   styleUrls: ['./carrito-listar.component.css'],
 })
 export class CarritoListarComponent implements OnInit {
-  private carritoService = inject(CarritoService);
+  public carritoService = inject(CarritoService);
 
   listaCarrito: Carrito[] = [];
 

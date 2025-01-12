@@ -28,16 +28,15 @@
           </li>
         </ul>
   
-       <!-- Carrito alineado a la derecha -->
-<div class="d-flex align-items-center ms-auto">
-  <a class="btn btn-outline-dark position-relative" routerLink="/carrito">
-    <i class="fa fa-shopping-cart"></i>
-    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-      <span class="fw-bold">{{ carritoService.cantidad() }}</span>
-    </span>
-  </a>
-</div>
-
+        <!-- Carrito alineado a la derecha -->
+        <div class="d-flex align-items-center">
+          <a class="btn btn-outline-dark position-relative" routerLink="/carrito">
+            <i class="fa fa-shopping-cart"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              <span class="fw-bold">{{ carritoService.cantidad()}}</span>
+            </span>
+          </a>
+        </div>
       </div>
     </div>
   </nav>

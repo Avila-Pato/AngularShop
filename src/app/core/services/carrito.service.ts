@@ -17,7 +17,7 @@ export class CarritoService {
     }
     return [];  // Devuelve un arreglo vacío si no estamos en el navegador
   }
-  
+
   ngOnInit() {
     if (typeof window !== 'undefined') {
       this.listCarrito = this.getCarrito();
@@ -66,12 +66,13 @@ export class CarritoService {
     localStorage.removeItem(this.carritoKey);
   }
 
+  // Obtener la cantidad de productos en el carrito actual
   cantidad() {
     const carrito = this.getCarrito();  // Obtener el carrito actual
     return carrito.length;
   }
   
-
+//  Calcular el total del carrito
   total() {
     const carrito = this.getCarrito();
     const total = carrito.reduce((sum: number, item: { producto: { precio: number; }; cantidad: number; }) =>
