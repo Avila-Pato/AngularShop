@@ -6,6 +6,9 @@ import { Producto } from '../modelo/producto';
   providedIn: 'root'
 })
 export class CarritoService {
+length() {
+throw new Error('Method not implemented.');
+}
   private carritoKey = 'carrito'; // Clave para localStorage
   listCarrito: any;
 

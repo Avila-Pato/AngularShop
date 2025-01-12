@@ -29,7 +29,17 @@
                     />
                   </td>
                   <td>{{ item.producto.nombre }}</td>
-                  <td>{{ item.cantidad }}</td>
+
+                  <!-- manejando cantidad dentro del input -->
+                  <input
+                    type="number"
+                    class="form-control"
+                    [(ngModel)]="item.cantidad"
+                    min="1"
+                    (ngModelChange)="
+                      actualizarCantidad(item.producto.id, item.cantidad)
+                    "
+                  />
 
                   <td>
                     {{
@@ -78,7 +88,12 @@
               <span class="fw-bold">{{
                 carritoService.total() | currency : "CLP" : "symbol" : "1.0-2"
               }}</span>
-              <button type="button" class="btn btn-dark btn-block btn-lg">
+
+              <button
+                [disabled]="listaCarrito.length === 0"
+                type="button"
+                class="btn btn-dark btn-block btn-lg"
+              >
                 <div class="d-flex justify-content-between">
                   <span>PROCESAR</span>
                 </div>

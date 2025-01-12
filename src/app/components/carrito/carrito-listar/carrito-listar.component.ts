@@ -12,6 +12,13 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./carrito-listar.component.css'],
 })
 export class CarritoListarComponent implements OnInit {
+
+  // actualiza el resumen de compra total del carrito
+  actualizarCantidad(productoId: number, cantidad: number) {
+    this.carritoService.actualizar(productoId, cantidad);
+  }
+  
+
   public carritoService = inject(CarritoService);
 
   listaCarrito: Carrito[] = [];
